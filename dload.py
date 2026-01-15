@@ -1,20 +1,24 @@
 import os
-from datasets import load_dataset, DownloadConfig
+from datasets import load_dataset
 
-# Create the directory if it doesn't exist
+# 1. Define your path
 cache_path = "E:/huggingface_ds"
+
+# 2. Ensure the directory exists
 if not os.path.exists(cache_path):
     os.makedirs(cache_path)
 
-# Force the environment variables within the script as a backup
-os.environ["HF_HOME"] = cache_path
+try:
+    # Use 'token' instead of 'use_auth_token'
+    dataset = load_dataset(
+        "deepghs/nsfw_detect",
+        token="", 
+        cache_dir=cache_path
+    )
+    
+    print("Success! Dataset loaded")
+    labels = dataset['train'].features['label'].names
+    print(f"Labels: {labels}")
 
-dataset = load_dataset(
-    "deepghs/nsfw_detect", 
-    token="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", 
-    cache_dir=cache_path,
-    download_config=DownloadConfig(cache_dir=cache_path)
-)
-
-print("Download successful!")
-print(f"Labels found: {dataset['train'].features['label'].names}")
+except Exception as e:
+    print(f"Error: {e}")
