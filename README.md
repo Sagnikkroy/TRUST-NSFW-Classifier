@@ -69,8 +69,6 @@ The classifier is built upon the **Vision Transformer (ViT)** architecture, whic
   <img width="80%" src="benchmarks/demo_sample_0.png">
 </p>
 
-## Dataset
-The model is fine-tuned on the [deepghs/nsfw_detect](https://huggingface.co/datasets/deepghs/nsfw_detect) dataset. This dataset is uniquely valuable because it balances both 2D (Illustrations/Anime) and 3D (Photographic) content.
 
 **Class Definitions:**
 * **Neutral:** Completely safe-for-work, everyday imagery.
@@ -81,7 +79,7 @@ The model is fine-tuned on the [deepghs/nsfw_detect](https://huggingface.co/data
 
 ---
 
-## Evaluation Results
+## Evaluation & Benchmarks
 *Note: These metrics represent the model performance on the validation split.*
 
 | Metric | Score |
