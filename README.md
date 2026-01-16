@@ -97,7 +97,7 @@ Our training focuses on minimizing **False Negatives** in the "Porn" and "Hentai
 
 
 ---
-### Mosel 
+### Model 
 The model is available on Huggingface please follow this link
  <a href="https://huggingface.co/Sagnikroy/TRUST-NSFW-Soft-V1/tree/main"><img alt="Hugging Face"
     src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Sagnik%20Roy-ffc107?style=flat&logoColor=white"/></a>
