@@ -83,9 +83,9 @@ The classifier is built upon the **Vision Transformer (ViT)** architecture, whic
 
 | Metric | Score |
 | :--- | :--- |
-| **Overall Accuracy** | 94.2% |
-| **Precision (Weighted)** | 0.93 |
-| **Recall (Weighted)** | 0.94 |
+| **Overall Accuracy** | 93.8% |
+| **Precision (Weighted)** | 98.5% |
+| **Safe Rate** | 99.61% |
 | **F1-Score** | 0.93 |
 
 ### Confusion Matrix
