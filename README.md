@@ -11,4 +11,9 @@
   <a href="https://x.com/sagnikkroy"><img alt="Twitter Follow"
     src="https://img.shields.io/badge/Twitter-sagnikkroy-white?logo=x&logoColor=white"/></a>
   <br>
-  
+  <a href="https://github.com/Sagnikkroy"><img alt="GitHub"
+    src="https://img.shields.io/badge/GitHub-Sagnikkroy-181717?logo=github&logoColor=white"/></a>
+  <br>
+  <a href="https://www.linkedin.com/in/sagnikkroy/"><img alt="LinkedIn"
+    src="https://img.shields.io/badge/LinkedIn-Sagnik%20Roy-0077B5?logo=linkedin&logoColor=white"/></a>
+  <br>
