@@ -25,7 +25,11 @@
 
 # Introduction
 
-An advanced image classification model designed to detect NSFW content with high precision, providing percentage-based probability outputs across multiple categories.
+**TRUST-NSFW-Classifier** is a high-performance, deep-learning solution engineered to solve the "Binary Bottleneck" of modern content moderation. While traditional classifiers often fail at the nuance between "artistic" and "explicit," TRUST leverages state-of-the-art **Vision Transformer (ViT)** architecture to deliver granular, multi-dimensional safety scores.
+
+By moving beyond simple "Safe/Unsafe" labels, this model provides a **probabilistic transparency layer**. It allows platforms to automate complex moderation workflows—distinguishing between safe-for-work(SFW) digital art, suggestive "sexy" content, and hardcore explicit material with surgical precision. 
+
+Built for speed, accuracy, and reliability, **TRUST** sets a new standard for open-source safety tools, ensuring that communities stay safe without sacrificing the freedom of legitimate creators.
 
 ---
 
