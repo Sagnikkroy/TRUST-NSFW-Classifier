@@ -1,4 +1,3 @@
-# TRUST-NSFW-Classifier
 <div align="center">
   <img src="assets\trustnsfwicon.png" width="60%" alt="TRUST NSFW Soft Model V1" />
 </div>
