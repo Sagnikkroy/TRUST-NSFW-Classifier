@@ -71,14 +71,6 @@ The model was optimized to reduce false negatives in explicit-content categories
 
 ---
 
-## Sample Prediction
-
-<p align="center">
-  <img width="80%" src="benchmarks/demo_sample_0.png">
-</p>
-
----
-
 ## Model
 
 The deployed model and inference API are available on Hugging Face Spaces:
