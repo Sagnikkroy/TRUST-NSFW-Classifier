@@ -1,110 +1,107 @@
-<div align="center">
-  <img src="assets\trustnsfwicon.png" width="60%" alt="TRUST NSFW Soft Model V1" />
-</div>
-<hr>
-<div align="center" style="line-height: 2;">
-  
-  <a href="https://huggingface.co/spaces/Sagnikroy/TRUST_NSFW_Detection"><img alt="Hugging Face"
-    src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Sagnik%20Roy-ffc107?style=flat&logoColor=white"/></a>
-  &nbsp;
-  <a href="https://x.com/sagnikkroy"><img alt="Twitter Follow"
-    src="https://img.shields.io/badge/Twitter-sagnikkroy-white?style=flat&logo=x&logoColor=black"/></a>
-  
-  <br>
+# TRUST Content Moderation Classifier
 
-  <a href="https://github.com/Sagnikkroy"><img alt="GitHub"
-    src="https://img.shields.io/badge/GitHub-Sagnikkroy-181717?style=flat&logo=github&logoColor=white"/></a>
-  &nbsp;
-  <a href="https://www.linkedin.com/in/sagnikkroy/"><img alt="LinkedIn"
-    src="https://img.shields.io/badge/LinkedIn-Sagnik%20Roy-0077B5?style=flat&logo=linkedin&logoColor=white"/></a>
+TRUST is a Vision Transformer (ViT)-based image classification model designed for automated content moderation and media safety applications. Unlike traditional binary classifiers, TRUST provides probability distributions across multiple content categories, enabling flexible moderation workflows and threshold-based decision making.
 
-</div>
+The model is trained to classify images into five moderation categories and is suitable for content filtering, review systems, and safety-focused applications.
 
-<hr>
+---
 
+## Demo
 
-# Demo
- <a href="https://huggingface.co/spaces/Sagnikroy/TRUST_NSFW_Detection"><img alt="Hugging Face"
-    src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Sagnik%20Roy-ffc107?style=flat&logoColor=white"/></a>
-
-# Introduction
-
-**TRUST-NSFW-Classifier** is a high-performance, deep-learning solution engineered to solve the "Binary Bottleneck" of modern content moderation. While traditional classifiers often fail at the nuance between "artistic" and "explicit," TRUST leverages state-of-the-art **Vision Transformer (ViT)** architecture to deliver granular, multi-dimensional safety scores.
-
-By moving beyond simple "Safe/Unsafe" labels, this model provides a **probabilistic transparency layer**. It allows platforms to automate complex moderation workflows—distinguishing between safe-for-work(SFW) digital art, suggestive "sexy" content, and hardcore explicit material with surgical precision. 
-
-Built for speed, accuracy, and reliability, **TRUST** sets a new standard for open-source safety tools, ensuring that communities stay safe without sacrificing the freedom of legitimate creators.
+[🤗 Hugging Face Demo](https://huggingface.co/spaces/Sagnikroy/TRUST_NSFW_Detection)
 
 ---
 
 ## Table of Contents
-* [Introduction](#-introduction)
-* [Model Summary](#-model-summary)
-* [Dataset](#-dataset)
-* [Evaluation Results](#-evaluation-results)
-* [Installation & Usage](#-installation--usage)
-* [Contact](#-contact)
+
+* [Overview](#overview)
+* [Model Summary](#model-summary)
+* [Evaluation Results](#evaluation-results)
+* [Model](#model)
 
 ---
 
-## Introduction
-In digital content moderation, a binary "Safe/Unsafe" toggle is often insufficient for modern platforms. **TRUST-NSFW-Classifier** addresses this by providing **probabilistic outputs**. 
+## Overview
 
-By utilizing the `deepghs/nsfw_detect` dataset, this model categorizes images into five specific levels of safety. This allows developers to implement "Soft Moderation"—such as applying a blur filter only when the "Porn" or "Hentai" probability exceeds a specific threshold (e.g., 85%), or flagging "Sexy" content for manual human review.
+Modern content moderation systems often require more nuanced decisions than simple safe/unsafe classification. TRUST addresses this challenge by producing probability scores across multiple content categories, allowing developers to define custom moderation thresholds and workflows.
+
+The model was trained on the `deepghs/nsfw_detect` dataset and generates probability distributions that can be used for automated filtering, content restriction, or manual review pipelines.
 
 ---
 
 ## Model Summary
-The classifier is built upon the **Vision Transformer (ViT)** architecture, which uses self-attention mechanisms to understand global image context rather than just local pixel patterns.
 
-| Feature | Details |
-| :--- | :--- |
-| **Base Model** | `google/vit-base-patch16-224-in21k` |
-| **Input Size** | 224 x 224 pixels |
-| **Output Type** | Softmax Probabilities (0.0 - 1.0) |
-| **Classes** | 5 (Neutral, Drawing, Sexy, Porn, Hentai) |
-| **Framework** | PyTorch & Hugging Face Transformers |
+The classifier is built on the Vision Transformer (ViT) architecture, leveraging self-attention mechanisms to capture global image context and improve classification performance.
 
+| Feature          | Details                             |
+| ---------------- | ----------------------------------- |
+| Base Model       | `google/vit-base-patch16-224-in21k` |
+| Input Resolution | 224 × 224                           |
+| Output Type      | Softmax Probability Distribution    |
+| Categories       | 5                                   |
+| Framework        | PyTorch, Hugging Face Transformers  |
 
+### Content Categories
+
+* **Neutral** — Safe-for-work everyday imagery
+* **Drawing** — Non-explicit artwork, illustrations, comics, and anime
+* **Suggestive** — Non-explicit suggestive content
+* **Explicit** — Explicit real-world adult content
+* **Illustrated Explicit** — Explicit illustrated or animated content
 
 ---
+
+## Evaluation Results
+
+Metrics reported on the validation dataset.
+
+| Metric               | Score |
+| -------------------- | ----- |
+| Accuracy             | 93.8% |
+| Precision (Weighted) | 98.5% |
+| F1 Score             | 0.93  |
+
+### Confusion Matrix
+
+The model was optimized to reduce false negatives in explicit-content categories while maintaining strong overall classification performance.
+
+<p align="center">
+  <img width="80%" src="benchmarks/confusion_matrix.png">
+</p>
+
+---
+
+## Sample Prediction
 
 <p align="center">
   <img width="80%" src="benchmarks/demo_sample_0.png">
 </p>
 
+---
 
-**Class Definitions:**
-* **Neutral:** Completely safe-for-work, everyday imagery.
-* **Drawing:** Safe-for-work art, comics, and anime.
-* **Sexy:** Suggestive content, lingerie, or provocative poses (Non-explicit).
-* **Porn:** Explicit real-life adult content.
-* **Hentai:** Explicit anime or illustrated adult content.
+## Model
+
+The deployed model and inference API are available on Hugging Face Spaces:
+
+👉 https://huggingface.co/spaces/Sagnikroy/TRUST_NSFW_Detection
 
 ---
 
-## Evaluation & Benchmarks
-*Note: These metrics represent the model performance on the validation split.*
+## Technical Stack
 
-| Metric | Score |
-| :--- | :--- |
-| **Overall Accuracy** | 93.8% |
-| **Precision (Weighted)** | 98.5% |
-| **Safe Rate** | 99.61% |
-| **F1-Score** | 0.93 |
-
-### Confusion Matrix
-Our training focuses on minimizing **False Negatives** in the "Porn" and "Hentai" categories to ensure maximum platform safety.
-<p align="center">
-  <img width="80%" src="benchmarks/confusion_matrix.png">
-</p>
-
-
-
+* PyTorch
+* Hugging Face Transformers
+* Vision Transformer (ViT)
+* FastAPI
+* Hugging Face Spaces
 
 ---
-### Model 
-The model is available on Huggingface please follow this link
- <a href="https://huggingface.co/spaces/Sagnikroy/TRUST_NSFW_Detection"><img alt="Hugging Face"
-    src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Sagnik%20Roy-ffc107?style=flat&logoColor=white"/></a>
 
+## Key Features
+
+* Multi-class content classification
+* Vision Transformer-based architecture
+* Probability-based moderation outputs
+* Real-time inference API
+* Cloud deployment through Hugging Face Spaces
+* Configurable moderation thresholds
