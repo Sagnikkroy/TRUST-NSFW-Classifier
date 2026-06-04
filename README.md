@@ -66,7 +66,7 @@ Metrics reported on the validation dataset.
 The model was optimized to reduce false negatives in explicit-content categories while maintaining strong overall classification performance.
 
 <p align="center">
-  <img width="80%" src="benchmarks/confusion_matrix.png">
+  <img width="80%" src="benchmarks/confusion_matrix_professional.png">
 </p>
 
 ---
